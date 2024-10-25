@@ -1,4 +1,4 @@
-Task 1: Get the code to comile/run tests
+## Task 1: Get the code to compile/run tests
 
 Notes: The initial code was failing to run tests as there was missing code in the index.ts file that 
 copied over values from the value returned from the getPlaceAutocomplete
@@ -6,9 +6,9 @@ copied over values from the value returned from the getPlaceAutocomplete
 The tests now run, but that does not mean they are working ;-)
 
 
-Task 2: Initial code review
+## Task 2: Initial code review
 
-Notes: 
+**Notes**: 
 
 - The apiKey in getAutoCompleteDetails is not used.
   Was the intention to add in an undefined check so that the app fails rather than always returns a 404 from the TomTom api call.
@@ -21,7 +21,7 @@ Notes:
 - The unit tests make an actual call to the TomTom api. This makes them integration tests that are more likely to fail in the case of connectivity/TomTom outages.
 - Npm audit indicates out of date libraries, 2 of which contain high level vulnerabilities.
 
-Outstanding tasks:
+### Outstanding tasks:
 
 - Update the libraries to the latest versions - deal with breaking changes
 - Add code for missing API key to throw an error
@@ -31,22 +31,22 @@ Outstanding tasks:
 - Create new type for Requirement 5
 
 
-Task 3: Fix tests to ensure values are copied from axios and tested in the test case
+## Task 3: Fix tests to ensure values are copied from axios and tested in the test case
 
 Added new test asserts to detect invalid values being copied between layers of the code.
 
-Notes:
+**Notes**:
 
 maps-api.ts was updated to map the values from the TomTom response to a new return type
 index.ts was updated to re-map those values. This is somewhat strange and can be addressed when a new type is added to satisfy requirement 5.
 The street number field can not be tested with the original request, this can be addressed when migrating to unit tests.
 
 
-Resolved tasks:
+### Resolved tasks:
 
 - Add in test cases that returned values are passed down to the test case.
 
-Outstanding tasks:
+### Outstanding tasks:
 
 - Update the libraries to the latest versions - deal with breaking changes
 - Add code for missing API key to throw an error
@@ -54,4 +54,24 @@ Outstanding tasks:
 - Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
 - Create new type for Requirement 5
 
+
+## Task 4: Create new internal type for use within the app. Requirement 5
+
+**Notes**:
+
+adding in a new AddressSuggestion type for use as the internal API as per requirement 5.
+The data from the TomTom API is mapped directly into the appropriate type so there is no longer any need to do any 
+secondary mapping in index.ts. This file may be required for error handling so it will be left at this point.
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
+- Add code for missing API key to throw an error
+- Add error code handling for the remote call.
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
 
