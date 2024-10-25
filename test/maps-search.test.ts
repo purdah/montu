@@ -41,8 +41,19 @@ describe('Tomtom Places E2E Tests', () => {
             expect(res).toStrictEqual([])
         })
 
-        it('handles error', async () => {
-            expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, '')).rejects.toThrow()
+        it('handles invalid address error', async () => {
+            expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, '')).rejects.toThrow('Request failed with status code 400')
+        })
+
+        it('handles invalid api key error', async () => {
+            expect(getPlaceAutocomplete('invalid api key', 'Charlotte Street')).rejects.toThrow('Request failed with status code 403')
+        })
+
+
+        it('handles missing TomTom api key', async () => {
+            expect(getPlaceAutocomplete(undefined, '')).rejects.toThrow('API key is missing')
+            expect(getPlaceAutocomplete(null, '')).rejects.toThrow('API key is missing')
+            expect(getPlaceAutocomplete('', '')).rejects.toThrow('API key is missing')
         })
     })
 

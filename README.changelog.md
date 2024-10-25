@@ -75,3 +75,25 @@ secondary mapping in index.ts. This file may be required for error handling so i
 - Add error code handling for the remote call.
 - Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
 
+
+## Task 5: Add in protection for undefined api key
+
+**Notes**:
+
+If an API key is not provided, most likely due to configuration error, then an error is thrown rather than hitting the TomTom
+api and getting a potentially confusing 403
+This is relevant when the app is packaged up for runtime which is a decision to be deferred until later.
+It was noted that the errors for 400/403 were not included in the test cases for invalid parameters and invalid search terms.
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+- Add code for missing API key to throw an error
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
+- Add error code handling for the remote call.
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+

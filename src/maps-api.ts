@@ -3,6 +3,10 @@ import {AddressSuggestion} from "./address-suggestion"
 
 // https://developer.tomtom.com/search-api/documentation/search-service/fuzzy-search
 export async function getPlaceAutocomplete(key: string, address: string) {
+    if (key == undefined || key == null || key == '') {
+        throw new Error("API key is missing");
+    }
+
     const autocomplete = await axios.get(`https://api.tomtom.com/search/2/search/${address}.json'`, {
         params: {
             key,
