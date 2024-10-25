@@ -7,11 +7,11 @@ export async function getAutoCompleteDetails(address: any): Promise<any> {
         const mappedResults = autocompleteResults.map((result: any) => {
             return {
                 placeId: result.placeId,
-                streetNumber: '',
-                countryCode: '',
-                country: '',
-                freeformAddress: '',
-                municipality: '',
+                streetNumber: result.streetNumber,
+                countryCode: result.countryCode,
+                country: result.country,
+                freeformAddress: result.freeformAddress,
+                municipality: result.municipality,
             };
         });
         return mappedResults;

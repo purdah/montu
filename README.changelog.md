@@ -31,3 +31,27 @@ Outstanding tasks:
 - Create new type for Requirement 5
 
 
+Task 3: Fix tests to ensure values are copied from axios and tested in the test case
+
+Added new test asserts to detect invalid values being copied between layers of the code.
+
+Notes:
+
+maps-api.ts was updated to map the values from the TomTom response to a new return type
+index.ts was updated to re-map those values. This is somewhat strange and can be addressed when a new type is added to satisfy requirement 5.
+The street number field can not be tested with the original request, this can be addressed when migrating to unit tests.
+
+
+Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+
+Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
+- Add code for missing API key to throw an error
+- Add error code handling for the remote call.
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+- Create new type for Requirement 5
+
+

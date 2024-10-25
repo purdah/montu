@@ -15,13 +15,22 @@ describe('Tomtom Places E2E Tests', () => {
 
         it('can fetch from the autocomplete api', async () => {
             const res = await getAutoCompleteDetails('Charlotte Street')
+            expect(res).toBeDefined();
+            expect(res).toHaveLength(3)
             const firstRes = res[0];
+            expect(firstRes).toBeDefined()
             expect(firstRes).toHaveProperty('placeId')
+            expect(firstRes.placeId).toBeDefined()
+            expect(firstRes.placeId).toBe('dmd3cjJBhnvZdGAPLSTmjA')
             expect(firstRes).toHaveProperty('streetNumber')
             expect(firstRes).toHaveProperty('countryCode')
+            expect(firstRes.countryCode).toBe('GB')
             expect(firstRes).toHaveProperty('country')
+            expect(firstRes.country).toBe('United Kingdom')
             expect(firstRes).toHaveProperty('freeformAddress')
+            expect(firstRes.freeformAddress).toBe('Queen Charlotte Street, Windsor, SL4 1PB')
             expect(firstRes).toHaveProperty('municipality')
+            expect(firstRes.municipality).toBe('Windsor')
         })
     })
 
