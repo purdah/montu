@@ -7,10 +7,10 @@ export async function getPlaceAutocomplete(key: string, address: string) {
         throw new Error("API key is missing");
     }
 
-    const autocomplete = await axios.get(`https://api.tomtom.com/search/2/search/${address}.json'`, {
+    const autocomplete = await axios.get(`https://api.tomtom.com/search/2/search/${address}.json`, {
         params: {
             key,
-            limit: 3,
+            limit: 100,
         }
     });
     return autocomplete.data.results.map((result: AddressSuggestion) => {

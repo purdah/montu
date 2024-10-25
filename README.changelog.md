@@ -97,3 +97,32 @@ It was noted that the errors for 400/403 were not included in the test cases for
 - Add error code handling for the remote call.
 - Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
 
+
+
+
+## Task 6: Migrate the tests to use mocks rather than actual calls
+
+**Notes**:
+
+The existing tests relied on making actual calls out to the TomTom API. This is not ideal as
+it causes a dependency on an external service that may be unavailable due to an outage.
+
+Jest has a mocking mechanism that can be used to mock out the Axios calls. This allows for tesing
+of calling parameters, one of which is mentioned in requirement 2
+
+The unit tests for testing the call parameters identified an extra character in the Axios URL that was probably a typo but did not 
+affect the call. This character was removed with no affect on the call. 
+
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+- Add code for missing API key to throw an error
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
+- Add error code handling for the remote call.
+- Add in parameters to limit search results to just Australian addresses
