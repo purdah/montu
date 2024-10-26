@@ -10,11 +10,12 @@ export async function getPlaceAutocomplete(key: string, address: string) {
     const autocomplete = await axios.get(`https://api.tomtom.com/search/2/search/${address}.json`, {
         params: {
             key,
+            idxSet: 'Addr',
             countrySet: 'AU',
             limit: 100,
         }
     });
-    return autocomplete.data.results.map((result: AddressSuggestion) => {
+    return autocomplete.data.results.map((result) => {
         const addressSuggestion: AddressSuggestion = {
             placeId: result.id,
             streetNumber: result.address?.streetNumber,

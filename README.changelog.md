@@ -136,6 +136,14 @@ affect the call. This character was removed with no affect on the call.
 Added request parameter to limit the countrySet as per TomTom api documentation
 
 
+## Task 8: Requirement 2, only make requests for Australian addresses
+
+**Notes**:
+
+A review of the TomTom api documentation shows that if addresses are the only required result types then
+there a new parameter required to limit results to 'Addr' types.
+
+
 
 ### Resolved tasks:
 

@@ -51,7 +51,6 @@ describe('Tomtom Places E2E Tests', () => {
             const firstRes = res[0];
             expect(firstRes).toBeDefined()
             expect(firstRes).toHaveProperty('placeId')
-            expect(firstRes.placeId).toBeDefined()
             expect(firstRes.placeId).toBe('id_value')
             expect(firstRes).toHaveProperty('streetNumber')
             expect(firstRes.streetNumber).toBe('street number')
@@ -99,7 +98,7 @@ describe('Tomtom Places E2E Tests', () => {
             let inputAddress = 'Charlotte Street';
             const endpoint = `https://api.tomtom.com/search/2/search/${inputAddress}.json`;
 
-            const params = {limit: 100, key: process.env.TOMTOM_API_KEY, countrySet: 'AU'};
+            const params = {limit: 100, key: process.env.TOMTOM_API_KEY, countrySet: 'AU', idxSet: 'Addr'};
 
             const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, inputAddress)
 
