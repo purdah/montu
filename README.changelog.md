@@ -158,3 +158,32 @@ there a new parameter required to limit results to 'Addr' types.
 
 - Update the libraries to the latest versions - deal with breaking changes
 - Add error code handling for the remote call.
+
+
+
+## Task 9: Add in error handling
+
+**Notes**:
+
+Basic logging of errors should be included in an app. Without a defined logging 
+standard the approach to use is to stick with Console logging with the aim of replacing the 
+console logging with a mechanism that works for the deployment environment whether 
+that be a Cloud based or Container based logging mechanism.
+
+This is not a solution for production but is just a basic implementation
+
+The use of a custom Error type can be used to aid in consistent error handling.
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+- Add code for missing API key to throw an error
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+- Add in parameters to limit search results to just Australian addresses
+- Add error code handling for the remote call.
+
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
