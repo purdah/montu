@@ -227,3 +227,16 @@ Given that there is no requirement other than 'address', two types are required
 in the TomTom API. 'PAD' for returning results when a street number is given, and 
 'Str' for when just a street name is given.
 
+
+# Final Observations
+
+For this code to be used in a production environment there are a few decisions that should be made:
+
+- What is the deployment environment, cloud/containers. Appropriate deployment config can be committed to the repo such as a dockerfile or terraform
+- Although basic logging has been added in the most critical places, a logging strategy should be devised or the company standard implemented
+- Basic exception handling via the use of logging where the error occurred is not sufficient for production. The use of custom Error classes would aid in logging by keeping various context values that could be logged in a standard way.
+- There are various out of date libraries, 2 of which indicate high security vulnerability warning. Keeping libraries up to date should be performed regularly, ideally using CI to automatically attempt to update libraries and fail a specific, non-blocking build if out of date libraries are found.
+- The TomTom API key needs to be managed, typically one per environment.  As a cost is associated with a key it would be worth considering using a secrets manager or configuration repository and avoid the inclusion of the key in the main code repository.
+- A basic eslint configuration has been added but it should be updated with appropriate rules suitable for the team.
+
+
