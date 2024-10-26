@@ -126,3 +126,27 @@ affect the call. This character was removed with no affect on the call.
 - Update the libraries to the latest versions - deal with breaking changes
 - Add error code handling for the remote call.
 - Add in parameters to limit search results to just Australian addresses
+
+
+
+## Task 7: Requirement 2, only make requests for Australian addresses
+
+**Notes**:
+
+Added request parameter to limit the countrySet as per TomTom api documentation
+
+
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+- Add code for missing API key to throw an error
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+- Add in parameters to limit search results to just Australian addresses
+
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
+- Add error code handling for the remote call.

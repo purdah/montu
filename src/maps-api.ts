@@ -10,6 +10,7 @@ export async function getPlaceAutocomplete(key: string, address: string) {
     const autocomplete = await axios.get(`https://api.tomtom.com/search/2/search/${address}.json`, {
         params: {
             key,
+            countrySet: 'AU',
             limit: 100,
         }
     });

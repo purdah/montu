@@ -99,7 +99,7 @@ describe('Tomtom Places E2E Tests', () => {
             let inputAddress = 'Charlotte Street';
             const endpoint = `https://api.tomtom.com/search/2/search/${inputAddress}.json`;
 
-            const params = {limit: 100, key: process.env.TOMTOM_API_KEY};
+            const params = {limit: 100, key: process.env.TOMTOM_API_KEY, countrySet: 'AU'};
 
             const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, inputAddress)
 
