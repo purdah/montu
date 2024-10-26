@@ -213,3 +213,17 @@ used that have been replaced with their actual types.
 ### Outstanding tasks:
 
 - Update the libraries to the latest versions - deal with breaking changes
+
+
+
+
+## Task 11: Final Testing
+
+**Notes**:
+
+After removing the mocks in the test file various addresses were tested.
+This led to identifying that the parameters in the query needed to change.
+Given that there is no requirement other than 'address', two types are required
+in the TomTom API. 'PAD' for returning results when a street number is given, and 
+'Str' for when just a street name is given.
+
