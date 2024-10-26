@@ -2,7 +2,7 @@ import {config} from 'dotenv'
 import {describe} from '@jest/globals'
 import {getPlaceAutocomplete} from '../src/maps-api'
 import {getAutoCompleteDetails} from '../src'
-import axios from 'axios';
+import axios from 'axios'
 
 
 config();
@@ -70,6 +70,7 @@ describe('Tomtom Places E2E Tests', () => {
         it('handles no results', async () => {
             mockedAxios.get.mockResolvedValue(noDataResponse);
             const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, 'asfasffasfasafsafs');
+
             expect(res).toStrictEqual([])
         })
 
@@ -95,12 +96,12 @@ describe('Tomtom Places E2E Tests', () => {
         it('calls axios with the correct endpoint and parameters', async () => {
             mockedAxios.get.mockResolvedValue(standardResponseData);
 
-            let inputAddress = 'Charlotte Street';
+            const inputAddress = 'Charlotte Street';
             const endpoint = `https://api.tomtom.com/search/2/search/${inputAddress}.json`;
 
             const params = {limit: 100, key: process.env.TOMTOM_API_KEY, countrySet: 'AU', idxSet: 'Addr'};
 
-            const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, inputAddress)
+            await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, inputAddress)
 
             expect(mockedAxios.get).toHaveBeenCalledWith(endpoint, {params});
 

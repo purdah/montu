@@ -1,6 +1,7 @@
 import {getPlaceAutocomplete} from './maps-api'
+import {AddressSuggestion} from "./address-suggestion";
 
-export async function getAutoCompleteDetails(address: any): Promise<any> {
+export async function getAutoCompleteDetails(address: string): Promise<AddressSuggestion[]> {
     const apiKey = process.env.TOMTOM_API_KEY;
 
     try {

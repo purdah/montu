@@ -187,3 +187,29 @@ The use of a custom Error type can be used to aid in consistent error handling.
 ### Outstanding tasks:
 
 - Update the libraries to the latest versions - deal with breaking changes
+
+
+
+## Task 10: Use a linter to detect/enforce a format standard as per Requirement 3
+
+**Notes**:
+
+Implementing a basic eslint configuration.
+
+This has identified a few issues in the TS files that have been addressed. There were a few instances of 'any' being
+used that have been replaced with their actual types.
+
+
+### Resolved tasks:
+
+- Add in test cases that returned values are passed down to the test case.
+- Create new type for Requirement 5
+- Add code for missing API key to throw an error
+- Migrate test cases to be unit tests to remove the dependencies on Axios remote calls.
+- Add in parameters to limit search results to just Australian addresses
+- Add error code handling for the remote call.
+
+
+### Outstanding tasks:
+
+- Update the libraries to the latest versions - deal with breaking changes
